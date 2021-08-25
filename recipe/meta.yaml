@@ -1,4 +1,4 @@
-{% set version = "2.1.1" %}
+{% set version = "2.2.0" %}
 
 package:
   name: lib3mf
@@ -7,7 +7,7 @@ package:
 source:
   fn: lib3mf-{{ version }}.tar.gz
   url: https://github.com/3MFConsortium/lib3mf/archive/v{{ version }}.tar.gz
-  sha256: 314d2b3754de3c5519dcd57c8d7bcf450103ee91891a5a840343a03961accd89
+  sha256: 96e85e278fc5474123e3c47237dd42faaf1fdf8e182541a84af7fe84ddd3cbde
   patches:
     - windows_cmake_patch.patch  # [win]
 
@@ -37,7 +37,7 @@ about:
   home: https://github.com/3MFConsortium/lib3mf
   license: BSD-2-Clause
   license_family: BSD
-  license_file: 
+  license_file:
     - LICENSE
     - library_licenses/libzip-LICENSE-BSD-3  # [win]
     - library_licenses/zlib-LICENSE-ZLIB  # [win]

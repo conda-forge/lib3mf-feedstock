@@ -1,4 +1,4 @@
-{% set version = "2.2.0" %}
+{% set version = "2.3.2" %}
 
 package:
   name: lib3mf
@@ -7,16 +7,17 @@ package:
 source:
   fn: lib3mf-{{ version }}.tar.gz
   url: https://github.com/3MFConsortium/lib3mf/archive/v{{ version }}.tar.gz
-  sha256: 96e85e278fc5474123e3c47237dd42faaf1fdf8e182541a84af7fe84ddd3cbde
+  sha256: 6e95b05463209425d80ba0e2244fe42f3c761054f6a9e9275a6c81aafea02d05
   patches:
     - windows_cmake_patch.patch  # [win]
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
     - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
     - cmake
     - pkg-config  # [unix]
     - ninja  # [unix]

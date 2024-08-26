@@ -17,7 +17,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - cmake
-    - pkg-config  # [unix]
+    - pkg-config
     - ninja  # [unix]
   host:
     - libzip

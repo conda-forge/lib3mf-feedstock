@@ -8,8 +8,6 @@ source:
   fn: lib3mf-{{ version }}.tar.gz
   url: https://github.com/3MFConsortium/lib3mf/archive/v{{ version }}.tar.gz
   sha256: 6e95b05463209425d80ba0e2244fe42f3c761054f6a9e9275a6c81aafea02d05
-  patches:
-    - windows_cmake_patch.patch  # [win]
 
 build:
   number: 0

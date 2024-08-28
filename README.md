@@ -3,19 +3,6 @@ About lib3mf-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lib3mf-feedstock/blob/main/LICENSE.txt)
 
-
-About lib3mf
-------------
-
-Home: https://github.com/3MFConsortium/lib3mf
-
-Package license: BSD-2-Clause
-
-Summary: A C++ implementation of the 3D Manufacturing Format file standard.
-
-About lib3mf
-------------
-
 Home: https://github.com/3MFConsortium/lib3mf
 
 Package license: BSD-2-Clause
@@ -51,6 +38,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12656&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lib3mf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12656&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lib3mf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -190,4 +184,5 @@ Feedstock Maintainers
 =====================
 
 * [@StephenSmith25](https://github.com/StephenSmith25/)
+* [@ndevenish](https://github.com/ndevenish/)
 

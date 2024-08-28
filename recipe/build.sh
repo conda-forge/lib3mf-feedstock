@@ -1,4 +1,7 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./Libraries/libressl
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./Libraries/libressl/scripts
 
 set -x
 

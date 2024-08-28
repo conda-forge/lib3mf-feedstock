@@ -16,6 +16,7 @@ build:
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - cmake

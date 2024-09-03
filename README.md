@@ -68,6 +68,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lib3mf-green.svg)](https://anaconda.org/conda-forge/lib3mf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lib3mf.svg)](https://anaconda.org/conda-forge/lib3mf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lib3mf.svg)](https://anaconda.org/conda-forge/lib3mf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lib3mf.svg)](https://anaconda.org/conda-forge/lib3mf) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lib3mf--python-green.svg)](https://anaconda.org/conda-forge/lib3mf-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lib3mf-python.svg)](https://anaconda.org/conda-forge/lib3mf-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lib3mf-python.svg)](https://anaconda.org/conda-forge/lib3mf-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lib3mf-python.svg)](https://anaconda.org/conda-forge/lib3mf-python) |
 
 Installing lib3mf
 =================
@@ -79,16 +80,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `lib3mf` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `lib3mf, lib3mf-python` can be installed with `conda`:
 
 ```
-conda install lib3mf
+conda install lib3mf lib3mf-python
 ```
 
 or with `mamba`:
 
 ```
-mamba install lib3mf
+mamba install lib3mf lib3mf-python
 ```
 
 It is possible to list all of the versions of `lib3mf` available on your platform with `conda`:

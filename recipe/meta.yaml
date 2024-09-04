@@ -1,7 +1,7 @@
 {% set version = "2.3.2" %}
 
 package:
-  name: lib3mf
+  name: lib3mf-split
   version: {{ version }}
 
 source:
@@ -10,30 +10,55 @@ source:
   sha256: 6e95b05463209425d80ba0e2244fe42f3c761054f6a9e9275a6c81aafea02d05
   patches:
     - 0001-Fix-bare-target_link_libraries.patch
+    - 0002-use-ctypes.util-to-find-library.patch
 
 build:
-  number: 0
+  number: 1
 
-requirements:
-  build:
-    - gnuconfig  # [unix]
-    - {{ compiler("cxx") }}
-    - {{ stdlib("c") }}
-    - cmake
-    - pkg-config
-    - ninja  # [unix]
-  host:
-    - libzip
-    - zlib
+outputs:
+  - name: lib3mf
+    script: build_lib3mf.sh  # [not win]
+    script: bld_lib3mf.bat  # [win]
+    requirements:
+      build:
+        - gnuconfig  # [unix]
+        - {{ compiler("cxx") }}
+        - {{ stdlib("c") }}
+        - cmake
+        - pkg-config
+        - ninja  # [unix]
+      host:
+        - libzip
+        - zlib
 
-test:
-  commands:
-    # verify headers exist
-    - test -f "${PREFIX}/include/Bindings/Cpp/lib3mf_types.hpp"                        # [unix]
-    - if not exist %PREFIX%\\Library\\include\\Bindings\\Cpp\\lib3mf_types.hpp exit 1  # [win]
-    # verify libraries
-    - test -f "${PREFIX}/lib/lib3mf${SHLIB_EXT}"                                       # [unix]
-    - if not exist %PREFIX%\\Library\\lib\\lib3mf.lib exit 1                           # [win]
+    test:
+      commands:
+        # verify headers exist
+        - test -f "${PREFIX}/include/Bindings/Cpp/lib3mf_types.hpp"                        # [unix]
+        - if not exist %PREFIX%\\Library\\include\\Bindings\\Cpp\\lib3mf_types.hpp exit 1  # [win]
+        # verify libraries
+        - test -f "${PREFIX}/lib/lib3mf${SHLIB_EXT}"                                       # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\lib3mf.lib exit 1                           # [win]
+
+  - name: lib3mf-python
+    script: build_python.sh
+    requirements:
+      build:
+        - pip
+        - python >=3.9                           # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - setuptools
+      host:
+        - python >=3.9
+        - pip
+      run:
+        - python >=3.9
+        - {{ pin_subpackage('lib3mf', exact=True) }}
+    test:
+      imports:
+        - lib3mf
+      commands:
+        - python -c "import lib3mf; lib3mf.get_wrapper()"
 
 about:
   home: https://github.com/3MFConsortium/lib3mf
@@ -45,6 +70,7 @@ about:
   summary: A C++ implementation of the 3D Manufacturing Format file standard.
 
 extra:
+  feedstock-name: lib3mf
   recipe-maintainers:
     - ndevenish
     - StephenSmith25

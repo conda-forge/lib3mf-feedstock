@@ -1,0 +1,15 @@
+[project]
+name = "lib3mf"
+version = "PKG_VERSION"
+description = "lib3mf is an implementation of the 3D Manufacturing Format file standard"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"

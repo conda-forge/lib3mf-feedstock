@@ -13,7 +13,7 @@ source:
     - 0002-use-ctypes.util-to-find-library.patch
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: lib3mf
@@ -51,6 +51,7 @@ outputs:
       host:
         - python >=3.9
         - pip
+        - setuptools
       run:
         - python >=3.9
         - {{ pin_subpackage('lib3mf', exact=True) }}

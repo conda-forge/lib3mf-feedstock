@@ -43,6 +43,7 @@ outputs:
   - name: lib3mf-python
     build:
       noarch: python
+      skip: true  # [build_platform != target_platform]
     script: build_python.sh
     requirements:
       host:

@@ -14,7 +14,6 @@ source:
 
 build:
   number: 1
-  noarch: python
 
 outputs:
   - name: lib3mf
@@ -42,6 +41,8 @@ outputs:
         - if not exist %PREFIX%\\Library\\lib\\lib3mf.lib exit 1                           # [win]
 
   - name: lib3mf-python
+    build:
+      noarch: python
     script: build_python.sh
     requirements:
       host:

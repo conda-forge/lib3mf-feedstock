@@ -44,19 +44,16 @@ outputs:
   - name: lib3mf-python
     script: build_python.sh
     requirements:
-      build:
-        - pip
-        - python >=3.9                           # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - setuptools
       host:
-        - python >=3.9
+        - python {{ python_min }}
         - pip
         - setuptools
       run:
-        - python >=3.9
+        - python >={{ python_min }}
         - {{ pin_subpackage('lib3mf', exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - lib3mf
       commands:

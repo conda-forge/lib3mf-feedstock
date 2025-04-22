@@ -9,6 +9,7 @@ cmake ^
     -DLIB3MF_TESTS=OFF ^
     -DCMAKE_BUILD_TYPE:String=Release ^
     -G "NMake Makefiles" ^
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ^
     ..
 
 cmake --build . --target install

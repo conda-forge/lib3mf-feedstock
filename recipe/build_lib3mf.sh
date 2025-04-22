@@ -12,6 +12,7 @@ cmake ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE:String=Release \
     -DLIB3MF_TESTS=OFF \
     -GNinja \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     ..
 
 ninja

@@ -47,13 +47,15 @@ outputs:
     script: build_python.sh
     requirements:
       host:
-        - python >={{ python_min }}
+        - python {{ python_min }}
         - pip
         - setuptools
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage('lib3mf', max_pin='x.x.x') }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - lib3mf
       commands:

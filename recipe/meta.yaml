@@ -52,7 +52,7 @@ outputs:
         - setuptools
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage('lib3mf', exact=True) }}
+        - {{ pin_subpackage('lib3mf', max_pin='x.x.x') }}
     test:
       requires:
         - python {{ python_min }}

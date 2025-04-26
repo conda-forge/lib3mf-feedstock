@@ -8,6 +8,8 @@ cxx_compiler:
 - vs2019
 libzip:
 - '1'
+python_min:
+- '3.9'
 target_platform:
 - win-64
 zlib:

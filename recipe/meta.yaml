@@ -11,9 +11,10 @@ source:
   patches:
     - 0001-Fix-bare-target_link_libraries.patch
     - 0002-use-ctypes.util-to-find-library.patch
+    - 0003-include-algorithm-for-std-algorithms.patch
 
 build:
-  number: 2
+  number: 4
 
 outputs:
   - name: lib3mf

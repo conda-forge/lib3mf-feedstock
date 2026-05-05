@@ -1,0 +1,77 @@
+Add explicit #include <algorithm> in source files that use std algorithms.
+
+Under newer GCC (13+) and libc++ stacks, the <algorithm> header is no
+longer transitively pulled in by other STL headers. Files that use
+std::find / std::copy / std::max previously compiled by accident but
+now fail with:
+
+    error: 'find' is not a member of 'std'; did you mean 'bind'?
+
+This affects all 5 files in the set that use std algorithms without
+an explicit #include.
+
+Upstream report / fix candidate: these are trivial one-line additions
+at the top of each file; equivalent changes should be submitted to
+3MFConsortium/lib3mf upstream.
+
+diff --git a/Source/API/lib3mf_contentencryptionparams.cpp b/Source/API/lib3mf_contentencryptionparams.cpp
+index f431940..504d825 100644
+--- a/Source/API/lib3mf_contentencryptionparams.cpp
++++ b/Source/API/lib3mf_contentencryptionparams.cpp
+@@ -1,4 +1,6 @@
+ #include "lib3mf_contentencryptionparams.hpp"
++
++#include <algorithm>
+ #include "lib3mf_interfaceexception.hpp"
+ 
+ using namespace Lib3MF::Impl;
+diff --git a/Source/API/lib3mf_resourcedata.cpp b/Source/API/lib3mf_resourcedata.cpp
+index 00ffd54..8193b10 100644
+--- a/Source/API/lib3mf_resourcedata.cpp
++++ b/Source/API/lib3mf_resourcedata.cpp
+@@ -1,4 +1,6 @@
+ #include "lib3mf_resourcedata.hpp"
++
++#include <algorithm>
+ #include "lib3mf_interfaceexception.hpp"
+ #include "lib3mf_consumer.hpp"
+ #include "lib3mf_packagepart.hpp"
+diff --git a/Source/Model/Classes/NMR_Model.cpp b/Source/Model/Classes/NMR_Model.cpp
+index 65b5d45..0bfd726 100644
+--- a/Source/Model/Classes/NMR_Model.cpp
++++ b/Source/Model/Classes/NMR_Model.cpp
+@@ -32,6 +32,8 @@ A model is an in memory representation of the 3MF file.
+ --*/
+ 
+ #include "Model/Classes/NMR_Model.h"
++
++#include <algorithm>
+ #include "Model/Classes/NMR_ModelObject.h"
+ #include "Model/Classes/NMR_ModelMeshObject.h"
+ #include "Model/Classes/NMR_ModelConstants.h"
+diff --git a/Source/Model/Classes/NMR_ModelSliceStack.cpp b/Source/Model/Classes/NMR_ModelSliceStack.cpp
+index c8eb99d..9069174 100644
+--- a/Source/Model/Classes/NMR_ModelSliceStack.cpp
++++ b/Source/Model/Classes/NMR_ModelSliceStack.cpp
+@@ -31,6 +31,8 @@ NMR_ModelSliceStackResource.h: implements the resource object for a slice stack
+ --*/
+ 
+ #include "Model/Classes/NMR_ModelSliceStack.h"
++
++#include <algorithm>
+ #include "Model/Classes/NMR_ModelResource.h"
+ #include "Common/NMR_Exception.h"
+ 
+diff --git a/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp b/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
+index b7e3967..b671e46 100644
+--- a/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
++++ b/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
+@@ -32,6 +32,8 @@ sorting them topologically.
+ 
+ #include "Model/Writer/v100/NMR_ResourceDependencySorter.h"
+ 
++#include <algorithm>
++
+ #include "Common/Graph/DirectedGraph.h"
+ #include "Common/Graph/GraphAlgorithms.h"
+ #include "Model/Classes/NMR_Model.h"

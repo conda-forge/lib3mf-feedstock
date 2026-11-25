@@ -30,6 +30,7 @@ outputs:
       host:
         - libzip
         - zlib
+        - fast_float
 
     test:
       commands:

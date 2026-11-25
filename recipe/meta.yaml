@@ -9,7 +9,6 @@ source:
   url: https://github.com/3MFConsortium/lib3mf/archive/v{{ version }}.tar.gz
   sha256: 66772c95359d70012a3e97c3aadfb40564cc2cbcf8a5d4bc64d8144c4cb20fb2
   patches:
-    - 0001-Fix-bare-target_link_libraries.patch
     - 0002-use-ctypes.util-to-find-library.patch
     - 0003-include-algorithm-for-std-algorithms.patch
 

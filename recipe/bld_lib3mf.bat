@@ -6,6 +6,7 @@ cmake ^
     -DUSE_INCLUDED_ZLIB=OFF ^
     -DUSE_INCLUDED_LIBZIP=OFF ^
     -DUSE_INCLUDED_SSL=OFF ^
+    -DUSE_INCLUDED_FASTFLOAT=OFF ^
     -DLIB3MF_TESTS=OFF ^
     -DCMAKE_BUILD_TYPE:String=Release ^
     -G "NMake Makefiles" ^

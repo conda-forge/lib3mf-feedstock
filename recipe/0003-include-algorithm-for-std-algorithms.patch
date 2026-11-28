@@ -7,8 +7,8 @@ now fail with:
 
     error: 'find' is not a member of 'std'; did you mean 'bind'?
 
-This affects all 5 files in the set that use std algorithms without
-an explicit #include.
+This affects the 4 files that use std algorithms without an explicit
+#include. (NMR_ResourceDependencySorter.cpp gained it upstream in 2.5.0.)
 
 Upstream report / fix candidate: these are trivial one-line additions
 at the top of each file; equivalent changes should be submitted to
@@ -62,16 +62,3 @@ index c8eb99d..9069174 100644
  #include "Model/Classes/NMR_ModelResource.h"
  #include "Common/NMR_Exception.h"
  
-diff --git a/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp b/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
-index b7e3967..b671e46 100644
---- a/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
-+++ b/Source/Model/Writer/v100/NMR_ResourceDependencySorter.cpp
-@@ -32,6 +32,8 @@ sorting them topologically.
- 
- #include "Model/Writer/v100/NMR_ResourceDependencySorter.h"
- 
-+#include <algorithm>
-+
- #include "Common/Graph/DirectedGraph.h"
- #include "Common/Graph/GraphAlgorithms.h"
- #include "Model/Classes/NMR_Model.h"
